@@ -2,7 +2,7 @@ import { useState, useEffect, PropsWithChildren } from 'react';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
-export default function WithMantine(props: PropsWithChildren) {
+export function WithMantine(props: PropsWithChildren) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const [localStorage, setLocalStorage] = useLocalStorage<ColorScheme>(
     'otterkit-color-scheme',

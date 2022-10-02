@@ -1,3 +1,3 @@
-import WithMantine from "./WithMantine";
+import { WithMantine } from "./WithMantine";
 
 export default WithMantine;
