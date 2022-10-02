@@ -17,7 +17,13 @@ export default function WithMantine(props: PropsWithChildren) {
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+      <MantineProvider 
+      theme={{ 
+        colorScheme,
+      }} 
+      withGlobalStyles 
+      withNormalizeCSS
+      >
         {props.children}
       </MantineProvider>
     </ColorSchemeProvider>
