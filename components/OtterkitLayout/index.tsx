@@ -1,3 +1,3 @@
-import { OtterkitLayout } from "./OtterkitLayout";
+import { OtterkitLayout } from './OtterkitLayout';
 
 export default OtterkitLayout;

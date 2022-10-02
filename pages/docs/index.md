@@ -1,7 +1,6 @@
-
 # COBOL Getting Started
 
-markdown is working:
+Markdown is working:
 
 - One
 - Two

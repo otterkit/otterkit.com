@@ -4,7 +4,10 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 
 export default function WithMantine(props: PropsWithChildren) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
-  const [localStorage, setLocalStorage] = useLocalStorage<ColorScheme>('otterkit-color-scheme', 'dark');
+  const [localStorage, setLocalStorage] = useLocalStorage<ColorScheme>(
+    'otterkit-color-scheme',
+    'dark'
+  );
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
     setLocalStorage(nextColorScheme);
@@ -13,16 +16,16 @@ export default function WithMantine(props: PropsWithChildren) {
 
   useEffect(() => {
     setColorScheme(localStorage);
-  }, [])
+  }, []);
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider 
-      theme={{ 
-        colorScheme,
-      }} 
-      withGlobalStyles 
-      withNormalizeCSS
+      <MantineProvider
+        theme={{
+          colorScheme,
+        }}
+        withGlobalStyles
+        withNormalizeCSS
       >
         {props.children}
       </MantineProvider>

@@ -1,3 +1,3 @@
-import { ColorSchemeToggle } from "./ColorSchemeToggle";
+import { ColorSchemeToggle } from './ColorSchemeToggle';
 
 export default ColorSchemeToggle;

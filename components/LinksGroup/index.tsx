@@ -1,3 +1,3 @@
-import { LinksGroup } from "./LinksGroup";
+import { LinksGroup } from './LinksGroup';
 
 export default LinksGroup;

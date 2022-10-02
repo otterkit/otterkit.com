@@ -1,12 +1,12 @@
+import Head from 'next/head';
 import { AppProps } from 'next/app';
 import WithMantine from '../components/WithMantine';
 import OtterkitLayout from '../components/OtterkitLayout';
-import Head from 'next/head';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
-  if (props.router.pathname.startsWith('/docs'))
+  if (props.router.pathname.startsWith('/docs')) {
     return (
       <>
         <Head>
@@ -21,6 +21,7 @@ export default function App(props: AppProps) {
         </WithMantine>
       </>
     );
+  }
 
   return (
     <>

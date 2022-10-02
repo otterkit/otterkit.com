@@ -2,7 +2,6 @@ import {
   AppShell,
   Navbar,
   Header,
-  Footer,
   Aside,
   Code,
   ScrollArea,
@@ -22,24 +21,12 @@ import { appMetadata } from '../../metadata/appMetadata';
 
 const useStyles = createStyles((theme) => ({
   otterkitNavbars: {
-    backgroundColor:
-      theme.colorScheme === 'dark' 
-      ? theme.colors.dark[8] 
-      : theme.colors.gray[0],
-    borderColor: 
-      theme.colorScheme === 'dark'
-      ? theme.colors.dark[8]
-      : theme.colors.gray[0],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+    borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
   },
   otterkitHeader: {
-    backgroundColor:
-      theme.colorScheme === 'dark' 
-      ? theme.colors.dark[8] 
-      : theme.colors.gray[0],
-    borderColor: 
-      theme.colorScheme === 'dark'
-      ? theme.colors.dark[6]
-      : theme.colors.gray[2],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+    borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
   versionStyle: {
     fontWeight: 700,
@@ -48,20 +35,15 @@ const useStyles = createStyles((theme) => ({
     marginRight: theme.spacing.md,
     paddingLeft: theme.spacing.sm,
     paddingRight: theme.spacing.sm,
-    backgroundColor:
-    theme.colorScheme === 'dark' 
-    ? theme.colors.dark[6] 
-    : theme.colors.gray[2],
-  }
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
+  },
 }));
 
 export function OtterkitLayout(props: PropsWithChildren) {
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
   const { classes } = useStyles();
-  const sidebarLinks = appMetadata.map((item) => {
-    return <LinksGroup {...item} key={item.label} />
-  });
+  const sidebarLinks = appMetadata.map((item) => <LinksGroup {...item} key={item.label} />);
 
   return (
     <AppShell
@@ -69,7 +51,13 @@ export function OtterkitLayout(props: PropsWithChildren) {
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="md"
       navbar={
-        <Navbar className={classes.otterkitNavbars} p="sm" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 235, lg: 275 }}>
+        <Navbar
+          className={classes.otterkitNavbars}
+          p="sm"
+          hiddenBreakpoint="sm"
+          hidden={!opened}
+          width={{ sm: 235, lg: 275 }}
+        >
           <Navbar.Section grow component={ScrollArea}>
             <div>{sidebarLinks}</div>
           </Navbar.Section>
@@ -87,14 +75,10 @@ export function OtterkitLayout(props: PropsWithChildren) {
                 mr="xl"
               />
             </MediaQuery>
-      
-            <Text sx={{ fontWeight: 700 }}>
-              Otterkit COBOL Docs
-            </Text>
-            <Code className={classes.versionStyle}>
-                v1.0.0
-            </Code>
-            <Group ml={'auto'}>
+
+            <Text sx={{ fontWeight: 700 }}>Otterkit COBOL Docs</Text>
+            <Code className={classes.versionStyle}>v1.0.0</Code>
+            <Group ml="auto">
               <ColorSchemeToggle />
             </Group>
           </div>
@@ -102,16 +86,19 @@ export function OtterkitLayout(props: PropsWithChildren) {
       }
       aside={
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-          <Aside className={classes.otterkitNavbars} p="md" hiddenBreakpoint="md" width={{ sm: 235, lg: 275 }}>
+          <Aside
+            className={classes.otterkitNavbars}
+            p="md"
+            hiddenBreakpoint="md"
+            width={{ sm: 235, lg: 275 }}
+          >
             <Text>Application sidebar</Text>
           </Aside>
         </MediaQuery>
       }
     >
       <Container size={630}>
-        <TypographyStylesProvider>
-          {props.children}
-        </TypographyStylesProvider>
+        <TypographyStylesProvider>{props.children}</TypographyStylesProvider>
       </Container>
     </AppShell>
   );
