@@ -30,6 +30,12 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
     borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
+
+  otterkitCOBOL: {
+    fontWeight: 600, 
+    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]
+  },
+
   versionStyle: {
     fontWeight: 700,
     borderRadius: theme.radius.xl,
@@ -37,6 +43,7 @@ const useStyles = createStyles((theme) => ({
     paddingInline: theme.spacing.xs,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
+
   flexContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -75,7 +82,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
               />
             </MediaQuery>
 
-            <Text sx={{ fontWeight: 700 }}>Otterkit COBOL</Text>
+            <Text className={classes.otterkitCOBOL}>Otterkit COBOL</Text>
             <Code className={classes.versionStyle}>v1.0.0</Code>
             <Group ml="auto">
               <GitHubButton />

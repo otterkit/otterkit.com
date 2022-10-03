@@ -13,13 +13,19 @@ import { NextLink } from '@mantine/next';
 import { OtterkitThemeToggle } from '../components/OtterkitThemeToggle';
 import { GitHubButton } from '../components/GitHubButton';
 
-const Breakpoint = '@media (max-width: 755px)';
+const Breakpoint = '@media (max-width: 635px)';
 
 const useStyles = createStyles((theme) => ({
   otterkitStyling: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
     borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
+
+  otterkitCOBOL: {
+    fontWeight: 600, 
+    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]
+  },
+
   versionStyle: {
     fontWeight: 700,
     borderRadius: theme.radius.xl,
@@ -27,6 +33,7 @@ const useStyles = createStyles((theme) => ({
     paddingInline: theme.spacing.xs,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
+
   flexContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -36,7 +43,7 @@ const useStyles = createStyles((theme) => ({
   gridContainer: {
     display: 'grid',
     placeContent: 'center',
-    height: 'calc(100vh - 64px)',
+    height: 'calc(100vh - 96px)',
   },
 
   title: {
@@ -48,7 +55,6 @@ const useStyles = createStyles((theme) => ({
 
     [Breakpoint]: {
       fontSize: 42,
-      lineHeight: 1.2,
     },
   },
 
@@ -93,7 +99,7 @@ export default function Otterkit() {
         header={
           <Header className={classes.otterkitStyling} height={64} p="md">
             <div className={classes.flexContainer}>
-              <Text sx={{ fontWeight: 700 }}>Otterkit COBOL</Text>
+              <Text className={classes.otterkitCOBOL}>Otterkit COBOL</Text>
               <Code className={classes.versionStyle}>v1.0.0</Code>
               <Group ml="auto">
                 <GitHubButton />
@@ -103,7 +109,7 @@ export default function Otterkit() {
           </Header>
         }
       >
-        <Container size={845} className={classes.gridContainer}>
+        <Container size={850} className={classes.gridContainer}>
           <h1 className={classes.title}>
             A
             <Text
