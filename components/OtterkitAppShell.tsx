@@ -32,8 +32,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   otterkitCOBOL: {
-    fontWeight: 600, 
-    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]
+    fontWeight: 600,
+    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6],
   },
 
   versionStyle: {

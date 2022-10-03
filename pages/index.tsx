@@ -22,8 +22,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   otterkitCOBOL: {
-    fontWeight: 600, 
-    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]
+    fontWeight: 600,
+    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6],
   },
 
   versionStyle: {
@@ -134,13 +134,14 @@ export default function Otterkit() {
 
           <Text className={classes.description} color="dimmed">
             Build stable and reliable COBOL backend applications without having to worry about
-            dialects or extensions — Otterkit allows you to build your COBOL application on top
-            of modern standard features.
+            dialects or extensions — Otterkit allows you to build your COBOL application on top of
+            modern standard features.
           </Text>
 
           <Group className={classes.controls}>
             <Button
               size="xl"
+              radius="xl"
               component={NextLink}
               href="/docs"
               className={classes.control}
