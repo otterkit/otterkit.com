@@ -18,7 +18,7 @@ import {
 } from '@mantine/core';
 import { useHotkeys } from '@mantine/hooks';
 import { IconSearch } from '@tabler/icons';
-import { PropsWithChildren, useState, useRef } from 'react';
+import { PropsWithChildren, useState, useRef, useId } from 'react';
 import { useRouter } from 'next/router';
 import { OtterkitThemeToggle } from './OtterkitThemeToggle';
 import { GitHubButton } from './GitHubButton';
@@ -60,9 +60,11 @@ export function OtterkitAppShell(props: PropsWithChildren) {
   const { classes } = useStyles();
   const router = useRouter();
   const sidebarLinks = appMetadata.map((item) => (
-    <LinksGroup closeNav={setOpened} {...item} key={item.label} />
+    <LinksGroup closeNav={setOpened} {...item} key={useId()} />
   ));
-  const autocompleteLabels = appMetadata.map((item) => item.label);
+  const autocompleteLabels = appMetadata.map((item) => item.links ? item.links.map((item) => item.label) : item.label).flatMap(item => item);
+  const autocompleteUrls = appMetadata.map((item) => item.links ? item.links.map((item) => item.href) : item.href).flatMap(item => item);
+  const labelsAndUrls = autocompleteLabels.map( (value, index) => ({label : value, href: autocompleteUrls[index]}));
 
   return (
     <AppShell
@@ -110,7 +112,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
               onChange={setValue}
               data={autocompleteLabels}
               onItemSubmit={(event) => {
-                router.push(appMetadata.find((item) => event.value === item.label)?.href!);
+                router.push(labelsAndUrls.find((item) => event.value === item.label)?.href!);
                 setValue('');
                 setOpened(false);
               }}
