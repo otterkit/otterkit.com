@@ -134,7 +134,7 @@ export default function Otterkit() {
 
           <Text className={classes.description} color="dimmed">
             Build stable and reliable COBOL backend applications without having to worry about
-            dialects or extensions — Otterkit COBOL allow you to build your COBOL application on top
+            dialects or extensions — Otterkit allows you to build your COBOL application on top
             of modern standard features.
           </Text>
 
