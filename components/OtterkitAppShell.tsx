@@ -21,6 +21,7 @@ import { IconSearch } from '@tabler/icons';
 import { PropsWithChildren, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { OtterkitThemeToggle } from './OtterkitThemeToggle';
+import { GitHubButton } from './GitHubButton';
 import { LinksGroup } from './LinksGroup';
 import { appMetadata } from '../metadata/appMetadata';
 
@@ -32,10 +33,8 @@ const useStyles = createStyles((theme) => ({
   versionStyle: {
     fontWeight: 700,
     borderRadius: theme.radius.xl,
-    marginLeft: theme.spacing.md,
-    marginRight: theme.spacing.md,
-    paddingLeft: theme.spacing.sm,
-    paddingRight: theme.spacing.sm,
+    marginInline: theme.spacing.xs,
+    paddingInline: theme.spacing.xs,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
 }));
@@ -76,6 +75,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
             <Text sx={{ fontWeight: 700 }}>Otterkit COBOL</Text>
             <Code className={classes.versionStyle}>v1.0.0</Code>
             <Group ml="auto">
+              <GitHubButton />
               <OtterkitThemeToggle />
             </Group>
           </div>

@@ -1,4 +1,4 @@
-import { IconRocket, IconStars, IconCertificate, IconLicense } from '@tabler/icons';
+import { IconRocket, IconComet, IconCertificate, IconLicense } from '@tabler/icons';
 
 export const appMetadata = [
   { label: 'Getting Started', icon: IconRocket, href: '/docs' },
@@ -6,8 +6,7 @@ export const appMetadata = [
   { label: 'ANSI Agreement', icon: IconCertificate, href: '/docs/ANSI' },
   {
     label: 'COBOL Basics',
-    icon: IconStars,
-    href: '',
+    icon: IconComet,
     links: [
       { label: 'Overview', href: '/docs/basics' },
       { label: 'Divisions', href: '/' },
