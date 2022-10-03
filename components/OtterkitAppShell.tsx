@@ -13,18 +13,18 @@ import {
   TypographyStylesProvider,
   createStyles,
   Group,
+  Autocomplete,
+  Divider,
 } from '@mantine/core';
+import { IconSearch } from '@tabler/icons';
 import { PropsWithChildren, useState } from 'react';
-import ColorSchemeToggle from '../ColorSchemeToggle';
-import LinksGroup from '../LinksGroup';
-import { appMetadata } from '../../metadata/appMetadata';
+import { useRouter } from 'next/router';
+import { OtterkitThemeToggle } from './OtterkitThemeToggle';
+import { LinksGroup } from './LinksGroup';
+import { appMetadata } from '../metadata/appMetadata';
 
 const useStyles = createStyles((theme) => ({
-  otterkitNavbars: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-    borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-  },
-  otterkitHeader: {
+  otterkitStyling: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
     borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
@@ -39,32 +39,23 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function OtterkitLayout(props: PropsWithChildren) {
+export function OtterkitAppShell(props: PropsWithChildren) {
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
   const { classes } = useStyles();
-  const sidebarLinks = appMetadata.map((item) => <LinksGroup {...item} key={item.label} />);
+  const router = useRouter();
+  const sidebarLinks = appMetadata.map((item) => (
+    <LinksGroup closeNav={setOpened} {...item} key={item.label} />
+  ));
+  const autocompleteLabels = appMetadata.map((item) => item.label);
 
   return (
     <AppShell
       padding="md"
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="md"
-      navbar={
-        <Navbar
-          className={classes.otterkitNavbars}
-          p="sm"
-          hiddenBreakpoint="sm"
-          hidden={!opened}
-          width={{ sm: 235, lg: 275 }}
-        >
-          <Navbar.Section grow component={ScrollArea}>
-            <div>{sidebarLinks}</div>
-          </Navbar.Section>
-        </Navbar>
-      }
       header={
-        <Header className={classes.otterkitHeader} height={64} p="md">
+        <Header className={classes.otterkitStyling} height={64} p="md">
           <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
               <Burger
@@ -76,18 +67,42 @@ export function OtterkitLayout(props: PropsWithChildren) {
               />
             </MediaQuery>
 
-            <Text sx={{ fontWeight: 700 }}>Otterkit COBOL Docs</Text>
+            <Text sx={{ fontWeight: 700 }}>Otterkit COBOL</Text>
             <Code className={classes.versionStyle}>v1.0.0</Code>
             <Group ml="auto">
-              <ColorSchemeToggle />
+              <OtterkitThemeToggle />
             </Group>
           </div>
         </Header>
       }
+      navbar={
+        <Navbar
+          className={classes.otterkitStyling}
+          p="sm"
+          hiddenBreakpoint="sm"
+          hidden={!opened}
+          width={{ sm: 235, lg: 275 }}
+        >
+          <Navbar.Section grow component={ScrollArea}>
+            <Autocomplete
+              radius="xl"
+              placeholder="Search (' / ' to focus)"
+              icon={<IconSearch size={16} />}
+              limit={5}
+              data={autocompleteLabels}
+              onItemSubmit={(event) =>
+                router.push(appMetadata.find((item) => event.value === item.label)?.href!)
+              }
+            />
+            <Divider my="sm" />
+            <div>{sidebarLinks}</div>
+          </Navbar.Section>
+        </Navbar>
+      }
       aside={
         <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
           <Aside
-            className={classes.otterkitNavbars}
+            className={classes.otterkitStyling}
             p="md"
             hiddenBreakpoint="md"
             width={{ sm: 235, lg: 275 }}

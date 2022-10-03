@@ -13,7 +13,7 @@ const withMDX = require('@next/mdx')({
 module.exports = withBundleAnalyzer(withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 }),{
-  reactStrictMode: false,
+  reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
   },

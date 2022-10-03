@@ -1,13 +1,37 @@
-# COBOL Getting Started
+# Getting Started with Otterkit COBOL
 
-Markdown is working:
+Warning: The Otterkit compiler is not yet production ready. We do not recommend using it in a production environment until the codebase is more mature and stable!
 
-- One
-- Two
-- Three
+## Installing the Otterkit compiler
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+TODO: Install Instructions...
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+## Standard COBOL Hello World
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Here's an example of a basic Hello World program in COBOL.
+
+```cobol
+
+       identification division.
+         program-id. hello-world.
+       procedure division.
+         display 'Hello, World!'.
+         stop run.
+
+```
+
+COBOL has an most English-like syntax making it easy to read and
+understand what it's trying to accomplish. In the next section
+we'll show how you can compile and run this Hello World example.
+
+## Compiling and running your code
+
+TODO: Compilation Instructions...
+
+## Compiling and running you code
+
+TODO: Compilation Instructions...
+
+## What next?
+
+TODO: What next section...

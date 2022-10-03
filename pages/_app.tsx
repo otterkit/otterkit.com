@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import WithMantine from '../components/WithMantine';
-import OtterkitLayout from '../components/OtterkitLayout';
+import { WithMantine } from '../components/WithMantine';
+import { OtterkitAppShell } from '../components/OtterkitAppShell';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -15,9 +15,9 @@ export default function App(props: AppProps) {
           <link rel="shortcut icon" href="/favicon.svg" />
         </Head>
         <WithMantine>
-          <OtterkitLayout>
+          <OtterkitAppShell>
             <Component {...pageProps} />
-          </OtterkitLayout>
+          </OtterkitAppShell>
         </WithMantine>
       </>
     );

@@ -1,11 +1,11 @@
 import Welcome from '../components/Welcome';
-import ColorSchemeToggle from '../components/ColorSchemeToggle';
+import { OtterkitThemeToggle } from '../components/OtterkitThemeToggle';
 
 export default function Otterkit() {
   return (
     <>
       <Welcome />
-      <ColorSchemeToggle />
+      <OtterkitThemeToggle />
     </>
   );
 }

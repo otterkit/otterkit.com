@@ -1,7 +1,7 @@
 import { ActionIcon, useMantineColorScheme } from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons';
 
-export function ColorSchemeToggle() {
+export function OtterkitThemeToggle() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (

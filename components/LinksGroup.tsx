@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Link from 'next/link';
+import { NextLink } from '@mantine/next';
 import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles } from '@mantine/core';
 import { TablerIcon, IconPlus, IconMinus } from '@tabler/icons';
 
@@ -42,64 +42,52 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface LinksGroupProps {
+export interface LinksGroupProps {
   icon: TablerIcon;
   label: string;
   href?: string;
   links?: { label: string; href: string }[];
+  closeNav?: any;
 }
 
-export function LinksGroup({ icon: Icon, label, links, href }: LinksGroupProps) {
+export function LinksGroup({ icon: Icon, label, links, href, closeNav }: LinksGroupProps) {
   const { classes } = useStyles();
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(false);
   const items = (hasLinks ? links : []).map((link) => (
-    <Link href={link.href} key={link.label} passHref>
-      <Text component="a" className={classes.link}>
-        {link.label}
-      </Text>
-    </Link>
+    <Text
+      component={NextLink}
+      href={link.href}
+      key={link.label}
+      onClick={() => closeNav(!true)}
+      className={classes.link}
+    >
+      {link.label}
+    </Text>
   ));
 
   return (
     <>
-      {href ? (
-        <Link href={href} passHref>
-          <UnstyledButton
-            component="a"
-            onClick={() => setOpened((toggle) => !toggle)}
-            className={classes.control}
-          >
-            <Group position="apart" spacing={0}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <ThemeIcon radius="xl" size="lg" className={classes.iconStyles}>
-                  <Icon size={16} />
-                </ThemeIcon>
-                <Box ml="md">{label}</Box>
-              </Box>
-              {hasLinks &&
-                (!opened ? <IconPlus size={16} stroke={2} /> : <IconMinus size={16} stroke={2} />)}
-            </Group>
-          </UnstyledButton>
-        </Link>
-      ) : (
-        <UnstyledButton
-          component="a"
-          onClick={() => setOpened((toggle) => !toggle)}
-          className={classes.control}
-        >
-          <Group position="apart" spacing={0}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <ThemeIcon radius="xl" size="lg" className={classes.iconStyles}>
-                <Icon size={16} />
-              </ThemeIcon>
-              <Box ml="md">{label}</Box>
-            </Box>
-            {hasLinks &&
-              (!opened ? <IconPlus size={16} stroke={2} /> : <IconMinus size={16} stroke={2} />)}
-          </Group>
-        </UnstyledButton>
-      )}
+      <UnstyledButton
+        component={NextLink}
+        {...(href ? { href } : { href: '' })}
+        onClick={() => {
+          setOpened((toggle) => !toggle);
+          closeNav(!true);
+        }}
+        className={classes.control}
+      >
+        <Group position="apart" spacing={0}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <ThemeIcon radius="xl" size="lg" className={classes.iconStyles}>
+              <Icon size={16} />
+            </ThemeIcon>
+            <Box ml="md">{label}</Box>
+          </Box>
+          {hasLinks &&
+            (!opened ? <IconPlus size={16} stroke={2} /> : <IconMinus size={16} stroke={2} />)}
+        </Group>
+      </UnstyledButton>
 
       {hasLinks && <Collapse in={opened}>{items}</Collapse>}
     </>
