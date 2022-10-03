@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 600,
     display: 'grid',
     width: '100%',
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
+    padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
     borderRadius: theme.radius.xl,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
     fontSize: theme.fontSizes.sm,
@@ -73,7 +73,7 @@ export function LinksGroup({ icon: Icon, label, links, href, closeNav }: LinksGr
         {...(href ? { href } : { href: '' })}
         onClick={() => {
           setOpened((toggle) => !toggle);
-          closeNav(!true);
+          href && closeNav(!true);
         }}
         className={classes.control}
       >
