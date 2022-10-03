@@ -67,7 +67,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  controls: {
+  buttonGroup: {
     marginTop: theme.spacing.xl * 1.5,
 
     [Breakpoint]: {
@@ -75,7 +75,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  control: {
+  buttonStyling: {
     height: 54,
     paddingInline: 32,
 
@@ -109,7 +109,7 @@ export default function Otterkit() {
           </Header>
         }
       >
-        <Container size={850} className={classes.gridContainer}>
+        <Container size={765} className={classes.gridContainer}>
           <h1 className={classes.title}>
             A
             <Text
@@ -138,13 +138,13 @@ export default function Otterkit() {
             modern standard features.
           </Text>
 
-          <Group className={classes.controls}>
+          <Group className={classes.buttonGroup}>
             <Button
               size="xl"
               radius="xl"
               component={NextLink}
               href="/docs"
-              className={classes.control}
+              className={classes.buttonStyling}
               variant="filled"
             >
               Get started
