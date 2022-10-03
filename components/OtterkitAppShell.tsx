@@ -37,6 +37,11 @@ const useStyles = createStyles((theme) => ({
     paddingInline: theme.spacing.xs,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
   },
+  flexContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+  }
 }));
 
 export function OtterkitAppShell(props: PropsWithChildren) {
@@ -61,7 +66,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
       asideOffsetBreakpoint="md"
       header={
         <Header className={classes.otterkitStyling} height={64} p="md">
-          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+          <div className={classes.flexContainer}>
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
               <Burger
                 opened={opened}
