@@ -41,16 +41,14 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     height: '100%',
-  }
+  },
 }));
 
 export function OtterkitAppShell(props: PropsWithChildren) {
   const [opened, setOpened] = useState(false);
   const [value, setValue] = useState('');
-  const ref = useRef<HTMLInputElement>(null)
-  useHotkeys([
-    ['slash', () => ref.current?.focus()],
-  ]);
+  const ref = useRef<HTMLInputElement>(null);
+  useHotkeys([['slash', () => ref.current?.focus()]]);
   const theme = useMantineTheme();
   const { classes } = useStyles();
   const router = useRouter();
@@ -101,15 +99,14 @@ export function OtterkitAppShell(props: PropsWithChildren) {
               icon={<IconSearch size={16} />}
               limit={5}
               ref={ref}
-              value={value} 
+              value={value}
               onChange={setValue}
               data={autocompleteLabels}
               onItemSubmit={(event) => {
-                  router.push(appMetadata.find((item) => event.value === item.label)?.href!)
-                  setValue('')
-                  setOpened(false)
-                }
-              }
+                router.push(appMetadata.find((item) => event.value === item.label)?.href!);
+                setValue('');
+                setOpened(false);
+              }}
             />
             <Divider my="sm" />
             <div>{sidebarLinks}</div>

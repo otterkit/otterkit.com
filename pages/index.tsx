@@ -13,6 +13,8 @@ import { NextLink } from '@mantine/next';
 import { OtterkitThemeToggle } from '../components/OtterkitThemeToggle';
 import { GitHubButton } from '../components/GitHubButton';
 
+const Breakpoint = '@media (max-width: 755px)';
+
 const useStyles = createStyles((theme) => ({
   otterkitStyling: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
@@ -44,7 +46,7 @@ const useStyles = createStyles((theme) => ({
     margin: 0,
     color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.colors.gray[9],
 
-    ['@media (max-width: 755px)']: {
+    [Breakpoint]: {
       fontSize: 42,
       lineHeight: 1.2,
     },
@@ -54,7 +56,7 @@ const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.xl,
     fontSize: 24,
 
-    ['@media (max-width: 755px)']: {
+    [Breakpoint]: {
       fontSize: 18,
     },
   },
@@ -62,7 +64,7 @@ const useStyles = createStyles((theme) => ({
   controls: {
     marginTop: theme.spacing.xl * 1.5,
 
-    ['@media (max-width: 755px)']: {
+    [Breakpoint]: {
       marginTop: theme.spacing.xl,
     },
   },
@@ -71,7 +73,7 @@ const useStyles = createStyles((theme) => ({
     height: 54,
     paddingInline: 32,
 
-    ['@media (max-width: 755px)']: {
+    [Breakpoint]: {
       height: 54,
       paddingInline: 18,
       flex: 1,
@@ -80,7 +82,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function Otterkit() {
-  const theme = useMantineTheme()
+  const theme = useMantineTheme();
   const { classes } = useStyles();
 
   return (
@@ -104,27 +106,37 @@ export default function Otterkit() {
         <Container size={845} className={classes.gridContainer}>
           <h1 className={classes.title}>
             A
-            <Text component="span" color={theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]} inherit>
-              {' '}free{' '}
+            <Text
+              component="span"
+              color={theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]}
+              inherit
+            >
+              {' '}
+              free{' '}
             </Text>
             and
-            <Text component="span" color={theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]} inherit>
-              {' '}open source{' '}
+            <Text
+              component="span"
+              color={theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6]}
+              inherit
+            >
+              {' '}
+              open source{' '}
             </Text>
             Standard COBOL compiler
           </h1>
 
           <Text className={classes.description} color="dimmed">
-            Build stable and reliable COBOL backend applications without having
-            to worry about dialects or extensions — Otterkit COBOL allow you to build 
-            your COBOL application on top of modern standard features.
+            Build stable and reliable COBOL backend applications without having to worry about
+            dialects or extensions — Otterkit COBOL allow you to build your COBOL application on top
+            of modern standard features.
           </Text>
 
           <Group className={classes.controls}>
             <Button
               size="xl"
               component={NextLink}
-              href='/docs'
+              href="/docs"
               className={classes.control}
               variant="filled"
             >
@@ -136,4 +148,3 @@ export default function Otterkit() {
     </>
   );
 }
-
