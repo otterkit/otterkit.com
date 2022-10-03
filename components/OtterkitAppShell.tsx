@@ -62,9 +62,16 @@ export function OtterkitAppShell(props: PropsWithChildren) {
   const sidebarLinks = appMetadata.map((item) => (
     <LinksGroup closeNav={setOpened} {...item} key={useId()} />
   ));
-  const autocompleteLabels = appMetadata.map((item) => item.links ? item.links.map((item) => item.label) : item.label).flatMap(item => item);
-  const autocompleteUrls = appMetadata.map((item) => item.links ? item.links.map((item) => item.href) : item.href).flatMap(item => item);
-  const labelsAndUrls = autocompleteLabels.map( (value, index) => ({label : value, href: autocompleteUrls[index]}));
+  const autocompleteLabels = appMetadata
+    .map((metadata) => (metadata.links ? metadata.links.map((item) => item.label) : metadata.label))
+    .flatMap((array) => array);
+  const autocompleteUrls = appMetadata
+    .map((metadata) => (metadata.links ? metadata.links.map((item) => item.href) : metadata.href))
+    .flatMap((array) => array);
+  const labelsAndUrls = autocompleteLabels.map((labels, index) => ({
+    label: labels,
+    href: autocompleteUrls[index],
+  }));
 
   return (
     <AppShell
