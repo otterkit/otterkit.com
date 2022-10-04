@@ -10,7 +10,7 @@ export default function App(props: AppProps) {
     return (
       <>
         <Head>
-          <title>Otterkit COBOL — Docs</title>
+          <title>Otterkit — Docs</title>
           <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
           <link rel="shortcut icon" href="/favicon.svg" />
         </Head>
@@ -26,7 +26,7 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>Otterkit COBOL — Homepage</title>
+        <title>Otterkit — Homepage</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>

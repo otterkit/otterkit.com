@@ -21,6 +21,7 @@ import { IconSearch } from '@tabler/icons';
 import { PropsWithChildren, useState, useRef, useId } from 'react';
 import { useRouter } from 'next/router';
 import { OtterkitThemeToggle } from './OtterkitThemeToggle';
+import { OtterkitLogo } from './OtterkitLogo';
 import { GitHubButton } from './GitHubButton';
 import { LinksGroup } from './LinksGroup';
 import { appMetadata } from '../metadata/appMetadata';
@@ -87,12 +88,12 @@ export function OtterkitAppShell(props: PropsWithChildren) {
                 onClick={() => setOpened((open) => !open)}
                 size="sm"
                 color={theme.colors.gray[6]}
-                mr="xl"
+                mr="sm"
               />
             </MediaQuery>
 
-            <Text className={classes.otterkitCOBOL}>Otterkit COBOL</Text>
-            <Code className={classes.versionStyle}>v1.0.0</Code>
+            <OtterkitLogo />
+            <Code className={classes.versionStyle}>v1.0</Code>
             <Group ml="auto">
               <GitHubButton />
               <OtterkitThemeToggle />

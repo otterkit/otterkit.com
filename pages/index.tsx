@@ -12,6 +12,7 @@ import {
 import { NextLink } from '@mantine/next';
 import { OtterkitThemeToggle } from '../components/OtterkitThemeToggle';
 import { GitHubButton } from '../components/GitHubButton';
+import { OtterkitLogo } from '../components/OtterkitLogo';
 
 const Breakpoint = '@media (max-width: 635px)';
 
@@ -99,8 +100,8 @@ export default function Otterkit() {
         header={
           <Header className={classes.otterkitStyling} height={64} p="md">
             <div className={classes.flexContainer}>
-              <Text className={classes.otterkitCOBOL}>Otterkit COBOL</Text>
-              <Code className={classes.versionStyle}>v1.0.0</Code>
+              <OtterkitLogo />
+              <Code className={classes.versionStyle}>v1.0</Code>
               <Group ml="auto">
                 <GitHubButton />
                 <OtterkitThemeToggle />
