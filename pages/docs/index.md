@@ -6,11 +6,6 @@ Warning: The Otterkit compiler is not yet production ready. We do not recommend 
 
 TODO: Install Instructions...
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
-
 ## Standard COBOL Hello World
 
 Here's an example of a basic Hello World program in COBOL.
