@@ -130,13 +130,13 @@ export default function Otterkit() {
               {' '}
               open source{' '}
             </Text>
-            Standard COBOL compiler
+            COBOL compiler
           </h1>
 
           <Text className={classes.description} color="dimmed">
-            Build stable and reliable COBOL backend applications without having to worry about
-            dialects or extensions — Otterkit allows you to build your COBOL application on top of
-            modern standard features.
+            Build stable and reliable COBOL backend applications
+             — Otterkit allows you to build your backend server using
+            modern COBOL features and open source software.
           </Text>
 
           <Group className={classes.buttonGroup}>
