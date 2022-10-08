@@ -1,16 +1,20 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+import bundleAnalyzer from '@next/bundle-analyzer'
+import mdx from '@next/mdx'
+import remarkGfm from 'remark-gfm'
+
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const withMDX = require('@next/mdx')({
+const withMDX = mdx({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
   },
 })
 
-module.exports = withBundleAnalyzer(withMDX({
+export default withBundleAnalyzer(withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 }),{
   reactStrictMode: true,

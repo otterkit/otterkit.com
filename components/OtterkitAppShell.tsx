@@ -107,7 +107,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
           p="sm"
           hiddenBreakpoint="sm"
           hidden={!opened}
-          width={{ sm: 235, lg: 275 }}
+          width={{ sm: 295 }}
         >
           <Navbar.Section grow component={ScrollArea}>
             <Autocomplete
@@ -129,18 +129,6 @@ export function OtterkitAppShell(props: PropsWithChildren) {
             <div>{sidebarLinks}</div>
           </Navbar.Section>
         </Navbar>
-      }
-      aside={
-        <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-          <Aside
-            className={classes.otterkitStyling}
-            p="md"
-            hiddenBreakpoint="md"
-            width={{ sm: 235, lg: 275 }}
-          >
-            <Text>Application sidebar</Text>
-          </Aside>
-        </MediaQuery>
       }
     >
       <Container size={630}>

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import { NextLink } from '@mantine/next';
-import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles } from '@mantine/core';
+import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles, MediaQuery } from '@mantine/core';
 import { TablerIcon, IconPlus, IconMinus } from '@tabler/icons';
 
 const useStyles = createStyles((theme) => ({
@@ -21,8 +21,11 @@ const useStyles = createStyles((theme) => ({
 
   link: {
     fontWeight: 600,
-    display: 'grid',
+    display: 'block',
     textDecoration: 'none',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
     padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
     paddingLeft: theme.spacing.md,
     marginLeft: 16,
@@ -55,15 +58,21 @@ export function LinksGroup({ icon: Icon, label, links, href, closeNav }: LinksGr
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(false);
   const items = (hasLinks ? links : []).map((link) => (
-    <Text
-      component={NextLink}
-      href={link.href}
-      key={link.label}
-      onClick={() => closeNav(!true)}
-      className={classes.link}
+    <MediaQuery
+      largerThan="sm"
+      styles={{ width: 234 }}
+      
     >
-      {link.label}
-    </Text>
+      <Text
+        component={NextLink}
+        href={link.href}
+        key={useId()}
+        onClick={() => closeNav(!true)}
+        className={classes.link}
+      >
+        {link.label}
+      </Text>
+    </MediaQuery>
   ));
 
   return (

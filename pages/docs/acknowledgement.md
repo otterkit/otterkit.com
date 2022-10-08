@@ -1,5 +1,12 @@
 # Standard Acknowledgement
 
+Any organization interested in reproducing the COBOL standard and specifications in whole or in part,
+using ideas from this document as the basis for an instruction manual or for any other purpose, is free
+to do so. However, all such organizations are requested to reproduce the following acknowledgment
+paragraphs in their entirety as part of the preface to any such publication (any organization using a
+short passage from this document, such as in a book review, is requested to mention "COBOL" in
+acknowledgment of the source, but need not quote the acknowledgment):
+
 COBOL is an industry language and is not the property of any company or group of companies, or of any
 organization or group of organizations.
 
