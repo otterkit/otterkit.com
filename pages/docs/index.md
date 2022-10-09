@@ -6,7 +6,7 @@ Warning: The Otterkit compiler is not yet production ready. We do not recommend 
 
 TODO: Install Instructions...
 
-## Standard COBOL Hello World
+## Otterkit COBOL Hello World
 
 Here's an example of a basic Hello World program in COBOL.
 
@@ -25,10 +25,6 @@ understand what it's trying to accomplish. In the next section
 we'll show how you can compile and run this Hello World example.
 
 ## Compiling and running your code
-
-TODO: Compilation Instructions...
-
-## Compiling and running you code
 
 TODO: Compilation Instructions...
 

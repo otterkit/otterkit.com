@@ -1,0 +1,17 @@
+# ATAN Function
+
+### Description:
+This function returns a value (in radians[^1]) that approximates the arctangent of its argument.
+
+### Types:
+
+| Argument Type | Return Type |
+| ------------- | ----------- |
+| Numeric       | Numeric     |
+
+### Usage example:
+
+> **FUNCTION\*** **ATAN\*** ( argument )
+
+[^1]: Follow [this link](https://en.wikipedia.org/wiki/Radian) 
+  for more information on radians - Wikipedia
