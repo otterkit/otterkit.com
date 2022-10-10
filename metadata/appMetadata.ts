@@ -1,4 +1,12 @@
-import { IconRocket, IconComet, IconMath, IconLicense, IconMathFunction } from '@tabler/icons';
+import { TablerIcon, IconRocket, IconComet, IconLicense, IconMathFunction } from '@tabler/icons';
+
+export interface AppMetadataProps {
+  icon: TablerIcon;
+  label: string;
+  href?: string;
+  links?: { label: string; href: string }[];
+  closeNav?: any;
+}
 
 export const appMetadata = [
   { label: 'Getting Started', icon: IconRocket, href: '/docs' },

@@ -1,14 +1,16 @@
 import { useState, useId } from 'react';
+import { AppMetadataProps } from '../metadata/appMetadata';
 import { NextLink } from '@mantine/next';
 import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles, MediaQuery } from '@mantine/core';
-import { TablerIcon, IconPlus, IconMinus } from '@tabler/icons';
+import { IconPlus, IconMinus } from '@tabler/icons';
 
 const useStyles = createStyles((theme) => ({
   control: {
     fontWeight: 600,
     display: 'grid',
     width: '100%',
-    padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
+    paddingBlock: theme.spacing.xs,
+    paddingInline: theme.spacing.sm,
     borderRadius: theme.radius.xl,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
     fontSize: theme.fontSizes.sm,
@@ -26,10 +28,9 @@ const useStyles = createStyles((theme) => ({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    paddingLeft: theme.spacing.md,
-    marginLeft: 16,
-    marginRight: 16,
+    paddingBlock: theme.spacing.xs,
+    paddingInline: theme.spacing.lg,
+    marginInline: 16,
     borderRadius: theme.radius.xl,
     fontSize: theme.fontSizes.sm,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[8],
@@ -41,19 +42,11 @@ const useStyles = createStyles((theme) => ({
   },
   iconStyles: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
-    color: theme.colorScheme === 'dark' ? theme.colors.blue[3] : theme.colors.blue[6],
+    color: "#6495ED",
   },
 }));
 
-export interface LinksGroupProps {
-  icon: TablerIcon;
-  label: string;
-  href?: string;
-  links?: { label: string; href: string }[];
-  closeNav?: any;
-}
-
-export function LinksGroup({ icon: Icon, label, links, href, closeNav }: LinksGroupProps) {
+export function GroupedLinks({ icon: Icon, label, links, href, closeNav }: AppMetadataProps) {
   const { classes } = useStyles();
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(false);
@@ -61,7 +54,6 @@ export function LinksGroup({ icon: Icon, label, links, href, closeNav }: LinksGr
     <MediaQuery
       largerThan="sm"
       styles={{ width: 234 }}
-      
     >
       <Text
         component={NextLink}
@@ -79,7 +71,7 @@ export function LinksGroup({ icon: Icon, label, links, href, closeNav }: LinksGr
     <>
       <UnstyledButton
         component={NextLink}
-        {...(href ? { href } : { href: '' })}
+        {...(href ? { href } : { href: 'javascript://' })}
         onClick={() => {
           setOpened((toggle) => !toggle);
           href && closeNav(!true);

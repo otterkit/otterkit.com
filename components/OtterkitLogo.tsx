@@ -1,6 +1,6 @@
 export function OtterkitLogo() {
   return (
-    <svg height="20" viewBox="0 0 262 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg height="18" viewBox="0 0 262 52" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M26 17L40.073 23.4007L43.5487 37.7829L33.8099 49.3165H18.1901L8.4513 37.7829L11.927 23.4007L26 17Z"
         fill="#573B30"

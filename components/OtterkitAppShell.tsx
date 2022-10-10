@@ -2,10 +2,8 @@ import {
   AppShell,
   Navbar,
   Header,
-  Aside,
   Code,
   ScrollArea,
-  Text,
   MediaQuery,
   Burger,
   Container,
@@ -13,17 +11,13 @@ import {
   TypographyStylesProvider,
   createStyles,
   Group,
-  Autocomplete,
-  Divider,
 } from '@mantine/core';
-import { useHotkeys } from '@mantine/hooks';
-import { IconSearch } from '@tabler/icons';
-import { PropsWithChildren, useState, useRef, useId } from 'react';
-import { useRouter } from 'next/router';
+import { PropsWithChildren, useState, useId } from 'react';
 import { OtterkitThemeToggle } from './OtterkitThemeToggle';
 import { OtterkitLogo } from './OtterkitLogo';
+import { OtterkitSearch } from './OtterkitSearch';
 import { GitHubButton } from './GitHubButton';
-import { LinksGroup } from './LinksGroup';
+import { GroupedLinks } from './GroupedLinks';
 import { appMetadata } from '../metadata/appMetadata';
 
 const useStyles = createStyles((theme) => ({
@@ -54,31 +48,17 @@ const useStyles = createStyles((theme) => ({
 
 export function OtterkitAppShell(props: PropsWithChildren) {
   const [opened, setOpened] = useState(false);
-  const [value, setValue] = useState('');
-  const ref = useRef<HTMLInputElement>(null);
-  useHotkeys([['slash', () => ref.current?.focus()]]);
   const theme = useMantineTheme();
   const { classes } = useStyles();
-  const router = useRouter();
   const sidebarLinks = appMetadata.map((item) => (
-    <LinksGroup closeNav={setOpened} {...item} key={useId()} />
+    <GroupedLinks closeNav={setOpened} {...item} key={useId()} />
   ));
-  const autocompleteLabels = appMetadata
-    .map((metadata) => (metadata.links ? metadata.links.map((item) => item.label) : metadata.label))
-    .flatMap((array) => array);
-  const autocompleteUrls = appMetadata
-    .map((metadata) => (metadata.links ? metadata.links.map((item) => item.href) : metadata.href))
-    .flatMap((array) => array);
-  const labelsAndUrls = autocompleteLabels.map((labels, index) => ({
-    label: labels,
-    href: autocompleteUrls[index],
-  }));
 
   return (
     <AppShell
       padding="md"
       navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="md"
+      className={classes.otterkitStyling}
       header={
         <Header className={classes.otterkitStyling} height={64} p="md">
           <div className={classes.flexContainer}>
@@ -87,7 +67,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
                 opened={opened}
                 onClick={() => setOpened((open) => !open)}
                 size="sm"
-                color={theme.colors.gray[6]}
+                color="#6495ED"
                 mr="sm"
               />
             </MediaQuery>
@@ -95,8 +75,8 @@ export function OtterkitAppShell(props: PropsWithChildren) {
             <OtterkitLogo />
             <Code className={classes.versionStyle}>v1.0</Code>
             <Group ml="auto">
-              <GitHubButton />
               <OtterkitThemeToggle />
+              <GitHubButton />
             </Group>
           </div>
         </Header>
@@ -110,22 +90,7 @@ export function OtterkitAppShell(props: PropsWithChildren) {
           width={{ sm: 295 }}
         >
           <Navbar.Section grow component={ScrollArea}>
-            <Autocomplete
-              radius="xl"
-              placeholder="Search (' / ' to focus)"
-              icon={<IconSearch size={16} />}
-              limit={5}
-              ref={ref}
-              value={value}
-              onChange={setValue}
-              data={autocompleteLabels}
-              onItemSubmit={(event) => {
-                router.push(labelsAndUrls.find((item) => event.value === item.label)?.href!);
-                setValue('');
-                setOpened(false);
-              }}
-            />
-            <Divider my="sm" />
+            <OtterkitSearch openState={setOpened} />
             <div>{sidebarLinks}</div>
           </Navbar.Section>
         </Navbar>
