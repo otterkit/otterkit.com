@@ -5,7 +5,7 @@ import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles, Me
 import { IconPlus, IconMinus } from '@tabler/icons';
 
 const useStyles = createStyles((theme) => ({
-  control: {
+  button: {
     fontWeight: 600,
     display: 'grid',
     width: '100%',
@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
 
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+      color: "#6495ED",
     },
   },
 
@@ -37,7 +37,7 @@ const useStyles = createStyles((theme) => ({
 
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+      color: "#6495ED",
     },
   },
   iconStyles: {
@@ -76,14 +76,14 @@ export function GroupedLinks({ icon: Icon, label, links, href, closeNav }: AppMe
           setOpened((toggle) => !toggle);
           href && closeNav(!true);
         }}
-        className={classes.control}
+        className={classes.button}
       >
         <Group position="apart" spacing={0}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <ThemeIcon radius="xl" size="lg" className={classes.iconStyles}>
-              <Icon size={16} />
+              <Icon size={18} />
             </ThemeIcon>
-            <Box ml="md">{label}</Box>
+            <Box ml="xs">{label}</Box>
           </Box>
           {hasLinks &&
             (!opened ? <IconPlus size={16} stroke={2} /> : <IconMinus size={16} stroke={2} />)}

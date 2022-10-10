@@ -103,8 +103,8 @@ export default function Otterkit() {
               <OtterkitLogo />
               <Code className={classes.versionStyle}>v1.0</Code>
               <Group ml="auto">
-                <GitHubButton />
                 <OtterkitThemeToggle />
+                <GitHubButton />
               </Group>
             </div>
           </Header>

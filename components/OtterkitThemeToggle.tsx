@@ -3,9 +3,10 @@ import { IconSun, IconMoonStars } from '@tabler/icons';
 
 const useStyles = createStyles((theme) => ({
   otterkitThemeToggle: {
-    color: '#6495ED',
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
     '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
+      color: '#6495ed',
     },
   },
 }));
@@ -22,9 +23,9 @@ export function OtterkitThemeToggle() {
       className={classes.otterkitThemeToggle}
     >
       {colorScheme === 'dark' ? (
-        <IconSun size={20} stroke={2} />
+        <IconSun size={18} stroke={2} />
       ) : (
-        <IconMoonStars size={20} stroke={2} />
+        <IconMoonStars size={18} stroke={2} />
       )}
     </ActionIcon>
   );

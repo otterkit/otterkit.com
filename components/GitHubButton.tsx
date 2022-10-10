@@ -3,9 +3,10 @@ import { IconBrandGithub } from '@tabler/icons';
 
 const useStyles = createStyles((theme) => ({
   githubButton: {
-    color: '#6495ed',
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
     '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
+      color: '#6495ed',
     },
   },
 }));
@@ -23,7 +24,7 @@ export function GitHubButton() {
       rel="noopener noreferrer"
       className={classes.githubButton}
     >
-      <IconBrandGithub size={20} stroke={2} />
+      <IconBrandGithub size={18} stroke={2} />
     </ActionIcon>
   );
 }
