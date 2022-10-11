@@ -30,6 +30,7 @@ export function OtterkitSearch(props: any) {
         aria-label="Search"
         styles={(theme) => ({
           input: {
+            fontWeight: 500,
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
             borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
             '&:focus': {

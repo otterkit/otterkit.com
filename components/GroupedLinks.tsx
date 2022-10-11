@@ -81,7 +81,7 @@ export function GroupedLinks({ icon: Icon, label, links, href, closeNav }: AppMe
         <Group position="apart" spacing={0}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <ThemeIcon radius="xl" size="lg" className={classes.iconStyles}>
-              <Icon size={18} />
+              <Icon size={16} />
             </ThemeIcon>
             <Box ml="xs">{label}</Box>
           </Box>

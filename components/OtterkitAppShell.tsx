@@ -48,7 +48,6 @@ const useStyles = createStyles((theme) => ({
 
 export function OtterkitAppShell(props: PropsWithChildren) {
   const [opened, setOpened] = useState(false);
-  const theme = useMantineTheme();
   const { classes } = useStyles();
   const sidebarLinks = appMetadata.map((item) => (
     <GroupedLinks closeNav={setOpened} {...item} key={useId()} />

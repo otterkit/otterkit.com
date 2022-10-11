@@ -1,4 +1,11 @@
-import { TablerIcon, IconRocket, IconComet, IconLicense, IconMathFunction } from '@tabler/icons';
+import { 
+  TablerIcon, 
+  IconRocket, 
+  IconComet, 
+  IconLicense, 
+  IconMathFunction,
+  IconCodeCircle
+} from '@tabler/icons';
 
 export interface AppMetadataProps {
   icon: TablerIcon;
@@ -16,9 +23,17 @@ export const appMetadata = [
     icon: IconComet,
     links: [
       { label: 'Metalanguage', href: '/docs/metalanguage' },
+      { label: 'Source Format', href: '/docs/source-format' },
       { label: 'Divisions', href: '/docs/divisions' },
       { label: 'Sections', href: '/docs/sections' },
       { label: 'Paragraphs', href: '/docs/paragraphs' },
+    ],
+  },
+  {
+    label: 'Statements',
+    icon: IconCodeCircle,
+    links: [
+      { label: 'TODO: Statements', href: '/docs/metalanguage' },
     ],
   },
   {
