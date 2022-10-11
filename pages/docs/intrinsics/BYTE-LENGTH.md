@@ -1,8 +1,9 @@
 # BYTE-LENGTH Function
 
 ### Description:
-This function returns an integer value equal to 
-the length of its argument in bytes.
+
+This function returns an integer value equal to
+the length of the argument in bytes.
 
 ### Types:
 

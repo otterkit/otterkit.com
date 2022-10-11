@@ -1,8 +1,17 @@
 import { useState, useId } from 'react';
-import { AppMetadataProps } from '../metadata/appMetadata';
-import { NextLink } from '@mantine/next';
-import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles, MediaQuery } from '@mantine/core';
 import { IconPlus, IconMinus } from '@tabler/icons';
+import { NextLink } from '@mantine/next';
+import {
+  Group,
+  Box,
+  Collapse,
+  ThemeIcon,
+  Text,
+  UnstyledButton,
+  createStyles,
+  MediaQuery,
+} from '@mantine/core';
+import { AppMetadataProps } from '../metadata/appMetadata';
 
 const useStyles = createStyles((theme) => ({
   button: {
@@ -17,7 +26,7 @@ const useStyles = createStyles((theme) => ({
 
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
-      color: "#6495ED",
+      color: '#6495ED',
     },
   },
 
@@ -37,12 +46,12 @@ const useStyles = createStyles((theme) => ({
 
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
-      color: "#6495ED",
+      color: '#6495ED',
     },
   },
   iconStyles: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
-    color: "#6495ED",
+    color: '#6495ED',
   },
 }));
 
@@ -51,10 +60,7 @@ export function GroupedLinks({ icon: Icon, label, links, href, closeNav }: AppMe
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(false);
   const items = (hasLinks ? links : []).map((link) => (
-    <MediaQuery
-      largerThan="sm"
-      styles={{ width: 234 }}
-    >
+    <MediaQuery largerThan="sm" styles={{ width: 234 }}>
       <Text
         component={NextLink}
         href={link.href}
@@ -71,7 +77,7 @@ export function GroupedLinks({ icon: Icon, label, links, href, closeNav }: AppMe
     <>
       <UnstyledButton
         component={NextLink}
-        {...(href ? { href } : { href: 'javascript://' })}
+        {...(href ? { href } : { href: '' })}
         onClick={() => {
           setOpened((toggle) => !toggle);
           href && closeNav(!true);

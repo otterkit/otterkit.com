@@ -7,7 +7,6 @@ import {
   MediaQuery,
   Burger,
   Container,
-  useMantineTheme,
   TypographyStylesProvider,
   createStyles,
   Group,

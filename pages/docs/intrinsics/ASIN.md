@@ -1,7 +1,9 @@
 # ASIN Function
 
 ### Description:
-This function returns a value (in radians[^1]) that approximates the arcsine of its argument.
+
+This function returns a value (in radians[^1]) that approximates
+the arcsine of the argument.
 
 ### Types:
 
@@ -13,5 +15,6 @@ This function returns a value (in radians[^1]) that approximates the arcsine of 
 
 > **FUNCTION\*** **ASIN\*** ( argument )
 
-[^1]: Follow [this link](https://en.wikipedia.org/wiki/Radian) 
-  for more information on radians - Wikipedia
+[^1]:
+    Follow [this link](https://en.wikipedia.org/wiki/Radian)
+    for more information on radians - Wikipedia

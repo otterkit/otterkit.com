@@ -1,10 +1,11 @@
 # BOOLEAN-OF-INTEGER Function
 
 ### Description:
-This function returns a boolean data item (of usage bit) that represents the binary 
-value of its first argument. 
 
-The second argument represents the length of the boolean data item that is returned 
+This function returns a boolean data item (of usage bit) that represents the binary
+value of the first argument.
+
+The second argument represents the length of the boolean data item that is returned
 by the function.
 
 ### Types:

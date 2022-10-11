@@ -134,9 +134,8 @@ export default function Otterkit() {
           </h1>
 
           <Text className={classes.description} color="dimmed">
-            Build stable and reliable COBOL backend applications
-             — Otterkit allows you to build your backend server using
-            modern COBOL features and open source software.
+            Build stable and reliable COBOL backend applications — Otterkit allows you to build your
+            backend server using modern COBOL features and open source software.
           </Text>
 
           <Group className={classes.buttonGroup}>

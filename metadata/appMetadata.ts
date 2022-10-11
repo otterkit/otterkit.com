@@ -1,10 +1,10 @@
-import { 
-  TablerIcon, 
-  IconRocket, 
-  IconComet, 
-  IconLicense, 
+import {
+  TablerIcon,
+  IconRocket,
+  IconComet,
+  IconLicense,
   IconMathFunction,
-  IconCodeCircle
+  IconCodeCircle,
 } from '@tabler/icons';
 
 export interface AppMetadataProps {
@@ -22,19 +22,17 @@ export const appMetadata = [
     label: 'COBOL Fundamentals',
     icon: IconComet,
     links: [
-      { label: 'Metalanguage', href: '/docs/metalanguage' },
-      { label: 'Source Format', href: '/docs/source-format' },
-      { label: 'Divisions', href: '/docs/divisions' },
-      { label: 'Sections', href: '/docs/sections' },
-      { label: 'Paragraphs', href: '/docs/paragraphs' },
+      { label: 'Metalanguage', href: '/docs/fundamentals/metalanguage' },
+      { label: 'Source Format', href: '/docs/fundamentals/source-format' },
+      { label: 'Divisions', href: '/docs/fundamentals/divisions' },
+      { label: 'Sections', href: '/docs/fundamentals/sections' },
+      { label: 'Paragraphs', href: '/docs/fundamentals/paragraphs' },
     ],
   },
   {
     label: 'Statements',
     icon: IconCodeCircle,
-    links: [
-      { label: 'TODO: Statements', href: '/docs/metalanguage' },
-    ],
+    links: [{ label: 'TODO: Statements', href: '/docs/metalanguage' }],
   },
   {
     label: 'Intrinsic Functions',
@@ -111,7 +109,10 @@ export const appMetadata = [
       { label: 'RANGE', href: '/docs/intrinsics/RANGE' },
       { label: 'REM', href: '/docs/intrinsics/REM' },
       { label: 'REVERSE', href: '/docs/intrinsics/REVERSE' },
-      { label: 'SECONDS-FROM-FORMATTED-TIME', href: '/docs/intrinsics/SECONDS-FROM-FORMATTED-TIME' },
+      {
+        label: 'SECONDS-FROM-FORMATTED-TIME',
+        href: '/docs/intrinsics/SECONDS-FROM-FORMATTED-TIME',
+      },
       { label: 'SECONDS-PAST-MIDNIGHT', href: '/docs/intrinsics/SECONDS-PAST-MIDNIGHT' },
       { label: 'SIGN', href: '/docs/intrinsics/SIGN' },
       { label: 'SIN', href: '/docs/intrinsics/SIN' },
