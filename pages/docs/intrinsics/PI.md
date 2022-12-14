@@ -4,13 +4,13 @@
 
 This function returns an approximation of pi, the ratio of the circumference of a circle to its diameter [^1]
 
-### Types
+### Types:
 
 | Argument Type | Return Type |
 | ------------- | ----------- |
 | None          | Numeric     |
 
-### Usage Example
+### Usage Example:
 
 > **FUNCTION\*** **PI\***
 
