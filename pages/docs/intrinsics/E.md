@@ -4,7 +4,7 @@
 
 This function returns an approximation of *e*, the base of natural logarithms [^1]
 
-### Types
+### Types:
 
 | Argument Type | Return Type |
 | ------------- | ----------- |
