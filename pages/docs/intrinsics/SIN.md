@@ -1,6 +1,6 @@
 # SIN Function
 
-### Description
+### Description:
 
 This function returns a value (in radians[^1]) that approximates sine (of an angle or arc) of the argument.
 
